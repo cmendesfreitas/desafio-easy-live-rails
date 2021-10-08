@@ -23,7 +23,9 @@ gem 'puma', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
+
+gem 'devise_token_auth', '~> 1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -35,8 +37,8 @@ group :development, :test do
   # Test framework
   gem 'rspec-rails', '~> 5.0.0'
 
-  gem 'factory_bot_rails'
-  gem 'faker'
+  gem 'factory_bot_rails', '~> 6.1'
+  gem 'faker', '~> 2.17'
 end
 
 group :development do
@@ -46,10 +48,12 @@ group :development do
 end
 
 group :test do
-  gem 'database_cleaner-active_record'
-
-  gem 'simplecov', require: false
+  gem 'database_cleaner-active_record', '~> 2.0'
+  gem 'shoulda-matchers', '~> 4.5'
+  gem 'simplecov', '~> 0.21.2', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem 'mailcatcher', '~> 0.2.4'

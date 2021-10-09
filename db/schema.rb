@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_08_040630) do
+ActiveRecord::Schema.define(version: 2021_10_09_104907) do
+
+  create_table "products", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "product_id"
+    t.string "name"
+    t.decimal "price", precision: 8, scale: 2, default: "0.0", null: false
+    t.decimal "original_price", precision: 8, scale: 2, default: "0.0", null: false
+    t.integer "number_of_installments", default: 0, null: false
+    t.decimal "installments_full_price", precision: 8, scale: 2, default: "0.0", null: false
+    t.string "image_url"
+    t.integer "available_quantity", default: 0, null: false
+    t.bigint "store_id", null: false
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_products_on_product_id", unique: true
+    t.index ["store_id"], name: "index_products_on_store_id"
+  end
+
+  create_table "stores", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["url"], name: "index_stores_on_url", unique: true
+  end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -35,4 +61,5 @@ ActiveRecord::Schema.define(version: 2021_10_08_040630) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "products", "stores"
 end

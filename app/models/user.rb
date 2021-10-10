@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
 
+  has_many :carts, dependent: :destroy
+  has_many :products, through: :carts
+
   validates :name, :email, presence: true
   validates :email, uniqueness: true
 

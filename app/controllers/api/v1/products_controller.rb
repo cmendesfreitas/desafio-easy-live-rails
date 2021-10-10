@@ -1,4 +1,4 @@
-class Api::V1::ProductsController < ApplicationController
+class Api::V1::ProductsController < Api::ApplicationController
   before_action :set_product, only: [:show]
   before_action :authenticate_api_v1_user!
 

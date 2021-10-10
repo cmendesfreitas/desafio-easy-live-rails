@@ -1,5 +1,5 @@
-class ApplicationController < ActionController::API
-  include DeviseTokenAuth::Concerns::SetUserByToken
+class ApplicationController < ActionController::Base
+  skip_forgery_protection
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 

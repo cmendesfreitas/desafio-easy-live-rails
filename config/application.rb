@@ -22,6 +22,8 @@ Bundler.require(*Rails.groups)
 module DesafioEasyLiveRails
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.autoload_paths += %W[#{config.root}/lib #{config.root}/doc]
+
     config.load_defaults 6.1
 
     # Configuration for the application, engines, and railties goes here.

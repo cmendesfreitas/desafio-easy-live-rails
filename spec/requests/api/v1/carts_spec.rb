@@ -5,11 +5,11 @@ RSpec.describe '/carts', type: :request do
   let(:product) { create :product }
 
   let(:valid_attributes) do
-    attributes_for(:cart, user_id: user.id, product_id: product.id)
+    attributes_for(:cart, product_id: product.id)
   end
 
   let(:invalid_attributes) do
-    attributes_for(:cart, user_id: 0, product_id: 0)
+    attributes_for(:cart, product_id: 0)
   end
 
   let(:valid_headers) { user.create_new_auth_token }
@@ -25,13 +25,13 @@ RSpec.describe '/carts', type: :request do
     end
 
     context 'when logged in' do
-      it 'renders a successful response' do
+      it 'renders a successful response', :show_in_doc, doc_title: 'Show cart items' do
         get api_v1_carts_url, headers: valid_headers, as: :json
         expect(response).to be_successful
       end
 
       it 'get 1 cart' do
-        create(:cart, valid_attributes)
+        create(:cart, user_id: user.id, product_id: product.id)
         get api_v1_carts_url, headers: valid_headers, as: :json
         json_response = JSON.parse(response.body)
         expect(json_response.count).to eq(1)
@@ -49,16 +49,16 @@ RSpec.describe '/carts', type: :request do
 
     context 'when logged in' do
       context 'with valid parameters' do
-        it 'creates a new cart item' do
+        it 'creates a new cart item', :show_in_doc, doc_title: 'Cart item added' do
           expect do
             post api_v1_carts_url,
-                 params: { cart: valid_attributes }, headers: valid_headers, as: :json
+                 params: valid_attributes, headers: valid_headers, as: :json
           end.to change(Cart, :count).by(1)
         end
 
         it 'renders a JSON response with the new cart item' do
           post api_v1_carts_url,
-               params: { cart: valid_attributes }, headers: valid_headers, as: :json
+               params: valid_attributes, headers: valid_headers, as: :json
           expect(response).to have_http_status(:created)
           expect(response.content_type).to match(a_string_including('application/json'))
         end
@@ -84,20 +84,20 @@ RSpec.describe '/carts', type: :request do
 
   describe 'DELETE destroy' do
     let!(:cart) do
-      create(:cart, valid_attributes)
+      create(:cart, user_id: user.id, product_id: product.id)
     end
 
     context 'no authorization token' do
       it 'return unauthorized' do
-        delete api_v1_cart_url(cart), headers: invalid_headers, as: :json
+        delete api_v1_cart_url(cart.product_id), headers: invalid_headers, as: :json
         expect(response).to have_http_status(:unauthorized)
       end
     end
 
     context 'when logged in' do
-      it 'destroys the requested cart item' do
+      it 'destroys the requested cart item', :show_in_doc, doc_title: 'Cart item removed' do
         expect do
-          delete api_v1_cart_url(cart), headers: valid_headers, as: :json
+          delete api_v1_cart_url(cart.product_id), headers: valid_headers, as: :json
         end.to change(Cart, :count).by(-1)
       end
     end

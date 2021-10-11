@@ -19,7 +19,7 @@ RSpec.describe 'Products', type: :request do
         expect(response).to have_http_status(:success)
       end
 
-      it 'get 1 product' do
+      it 'get 1 product', :show_in_doc, doc_title: 'get all products' do
         create(:product, active: true)
         get api_v1_products_path, headers: valid_headers, as: :json
         json_response = JSON.parse(response.body)
@@ -41,7 +41,7 @@ RSpec.describe 'Products', type: :request do
     end
 
     context 'when logged in' do
-      it 'renders a successful response' do
+      it 'renders a successful response', :show_in_doc, doc_title: 'get 1 products' do
         get api_v1_product_path(product), headers: valid_headers
         expect(response).to have_http_status(:success)
       end

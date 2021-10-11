@@ -1,4 +1,6 @@
 class Api::V1::ProductsController < Api::ApplicationController
+  include Api::V1::ProductsControllerDoc
+
   before_action :set_product, only: [:show]
   before_action :authenticate_api_v1_user!
 

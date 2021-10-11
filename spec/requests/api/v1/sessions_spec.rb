@@ -6,7 +6,7 @@ RSpec.describe 'Session', type: :request do
 
   describe 'sign in' do
     context 'with valid parameters' do
-      it 'should respond with success' do
+      it 'should respond with success', :show_in_doc, doc_title: 'User login' do
         post api_v1_user_session_path, params: {
           email: user.email, password: user.password
         }, as: :json
@@ -25,7 +25,7 @@ RSpec.describe 'Session', type: :request do
   end
 
   describe 'sign out' do
-    it 'should respond with success' do
+    it 'should respond with success', :show_in_doc, doc_title: 'User logout' do
       delete destroy_api_v1_user_session_path, headers: valid_headers
       expect(response).to have_http_status(:success)
     end

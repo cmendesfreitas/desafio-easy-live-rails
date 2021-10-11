@@ -31,6 +31,8 @@ gem 'administrate', '~> 0.16.0'
 
 gem 'httparty', '~> 0.20.0'
 
+gem 'apipie-rails', '~> 0.5.19'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -61,3 +63,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem "active_model_serializers", "~> 0.10.12"

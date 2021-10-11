@@ -1,12 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Registrations', type: :request do
-  # let(:user) { create :user }
   let(:valid_attributes) do
     attributes_for(:user)
   end
-
-  # let(:valid_headers) { user.create_new_auth_token }
 
   describe 'POST signup' do
     it 'user is created', :show_in_doc, doc_title: 'User signup' do
@@ -31,7 +28,7 @@ RSpec.describe 'Registrations', type: :request do
   end
 
   describe 'DELETE /destroy' do
-    it 'destroys the user' do
+    it 'destroys the user', :show_in_doc, doc_title: 'User signout' do
       user
       expect do
         delete api_v1_user_registration_path, headers: user.create_new_auth_token, as: :json

@@ -1,17 +1,19 @@
 class Api::V1::CartsController < Api::ApplicationController
+  include Api::V1::CartsControllerDoc
+
   before_action :set_cart, only: %i[show destroy]
   before_action :authenticate_api_v1_user!
 
   # GET /carts
   def index
-    @carts = Cart.all
+    @carts = current_api_v1_user.carts
 
     render json: @carts
   end
 
   # POST /carts
   def create
-    @cart = Cart.new(cart_params)
+    @cart = current_api_v1_user.carts.new(cart_params)
 
     if @cart.save
       render json: @cart, status: :created, location => api_v1_carts_url
@@ -29,11 +31,11 @@ class Api::V1::CartsController < Api::ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_cart
-    @cart = Cart.find(params[:id])
+    @cart = current_api_v1_user&.products&.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def cart_params
-    params.require(:cart).permit(:user_id, :product_id)
+    params.permit(:product_id)
   end
 end

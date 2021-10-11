@@ -1,0 +1,313 @@
+{
+  "carts#create": [
+    {
+      "title": "Cart item added",
+      "verb": "POST",
+      "path": "/api/v1/carts",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "product_id": 1
+      },
+      "response_data": {
+        "id": 1,
+        "user": {
+          "id": 2,
+          "name": "Myron Brown III"
+        },
+        "product": {
+          "id": 1,
+          "product_id": "2ddfe415-2cbd-44d1-9785-4ce17f80cdc1",
+          "name": "Virgil Kuhic",
+          "price": "1473.77",
+          "original_price": "37.85",
+          "number_of_installments": 1,
+          "installments_full_price": "30.38",
+          "image_url": "http://gottlieb.net/carylon_lubowitz",
+          "available_quantity": 1561,
+          "active": true,
+          "description": null
+        }
+      },
+      "code": 201,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "carts#destroy": [
+    {
+      "title": "Cart item removed",
+      "verb": "DELETE",
+      "path": "/api/v1/carts/2",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 204,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "carts#index": [
+    {
+      "title": "Show cart items",
+      "verb": "GET",
+      "path": "/api/v1/carts",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+
+      ],
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "passwords#create": [
+    {
+      "title": "Send reset mail",
+      "verb": "POST",
+      "path": "/api/v1/auth/password",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "email=lynetta_monahan%40towne.io&redirect_url=http%3A%2F%2Flocalhost%3A3000%2Freset-password",
+      "response_data": {
+        "success": true,
+        "message": "An email has been sent to 'lynetta_monahan@towne.io' containing instructions for resetting your password."
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "passwords#update": [
+    {
+      "title": "Password reset",
+      "verb": "PUT",
+      "path": "/api/v1/auth/password",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "current_password": "KiCoXgCnMlFx",
+        "password": "XiSl3026D",
+        "password_confirmation": "XiSl3026D"
+      },
+      "response_data": {
+        "success": true,
+        "data": {
+          "email": "eugenio.miller@carter.io",
+          "id": 5,
+          "uid": "eugenio.miller@carter.io",
+          "provider": "email",
+          "allow_password_change": false,
+          "name": "Thaddeus Kling",
+          "created_at": "2021-10-11T09:59:15.428Z",
+          "updated_at": "2021-10-11T09:59:15.477Z"
+        },
+        "message": "Your password has been successfully updated."
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#index": [
+    {
+      "title": "get all products",
+      "verb": "GET",
+      "path": "/api/v1/products",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 3,
+          "product_id": "d29b7e5a-5f24-46d2-9a1b-a7bc9e1109d4",
+          "name": "Ahmed Vandervort",
+          "price": "3266.93",
+          "original_price": "38.34",
+          "number_of_installments": 3,
+          "installments_full_price": "38.04",
+          "image_url": "http://jerde.com/trudi.bauch",
+          "available_quantity": 4717,
+          "active": true,
+          "description": null,
+          "store": {
+            "id": 3,
+            "name": "Luis Rath"
+          }
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#show": [
+    {
+      "title": "get 1 products",
+      "verb": "GET",
+      "path": "/api/v1/products/4",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "id": 4,
+        "product_id": "36eaf643-1159-4214-8d02-a1f54d06fa8e",
+        "name": "Elodia Gerlach",
+        "price": "3750.23",
+        "original_price": "45.21",
+        "number_of_installments": 4,
+        "installments_full_price": "60.44",
+        "image_url": "http://gusikowski-runte.com/arnoldo",
+        "available_quantity": 409,
+        "active": false,
+        "description": null,
+        "store": {
+          "id": 4,
+          "name": "Sen. Johanna Funk"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "registrations#create": [
+    {
+      "title": "User signup",
+      "verb": "POST",
+      "path": "/api/v1/auth",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "name": "Antony Treutel",
+        "password": "ZcSj0GkIm0Cc2",
+        "password_confirmation": "ZcSj0GkIm0Cc2",
+        "email": "javier.will@ledner.info"
+      },
+      "response_data": {
+        "status": "success",
+        "data": {
+          "id": 8,
+          "provider": "email",
+          "uid": "javier.will@ledner.info",
+          "allow_password_change": false,
+          "name": "Antony Treutel",
+          "email": "javier.will@ledner.info",
+          "created_at": "2021-10-11T09:59:15.629Z",
+          "updated_at": "2021-10-11T09:59:15.636Z"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "registrations#destroy": [
+    {
+      "title": "User signout",
+      "verb": "DELETE",
+      "path": "/api/v1/auth",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "status": "success",
+        "message": "Account with UID 'jacques@hahn.io' has been destroyed."
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "sessions#create": [
+    {
+      "title": "User login",
+      "verb": "POST",
+      "path": "/api/v1/auth/sign_in",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "email": "terrance@carroll.biz",
+        "password": "Ck1UyGgZ8wV7j6LjD"
+      },
+      "response_data": {
+        "data": {
+          "email": "terrance@carroll.biz",
+          "id": 10,
+          "uid": "terrance@carroll.biz",
+          "provider": "email",
+          "allow_password_change": false,
+          "name": "Willian Bayer"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "sessions#destroy": [
+    {
+      "title": "User logout",
+      "verb": "DELETE",
+      "path": "/api/v1/auth/sign_out",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 204,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "token_validations#validate_token": [
+    {
+      "title": "Validate token",
+      "verb": "GET",
+      "path": "/api/v1/auth/validate_token",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "success": true,
+        "data": {
+          "id": 12,
+          "provider": "email",
+          "uid": "elias@champlin.org",
+          "allow_password_change": false,
+          "name": "Jude Greenfelder DVM",
+          "email": "elias@champlin.org"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ]
+}

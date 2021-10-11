@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  apipie
+  root to: 'apipie/apipies#index'
+
   namespace :myadminpanel do
     resources :admins
     resources :products
@@ -11,9 +14,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-        registrations: 'api/v1/registrations',
-        token_validations: 'api/v1/token_validations',
-        passwords: 'api/v1/passwords'
+        registrations: 'api/v1/overrides/registrations',
+        sessions: 'api/v1/overrides/sessions',
+        token_validations: 'api/v1/overrides/token_validations',
+        passwords: 'api/v1/overrides/passwords'
       }
       resources :products, only: %i[index show]
       resources :carts, only: %i[index create destroy]

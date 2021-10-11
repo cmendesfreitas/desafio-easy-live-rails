@@ -130,7 +130,7 @@ class GetProducts
   def insert_product(product_id:, name:, description:, price:, original_price:,
                      number_of_installments:, installments_full_price:, image_url:,
                      available_quantity:, store_id:)
-    hash_data = Product.new(
+    productAux = Product.new(
       product_id: product_id,
       name: name,
       description: description,
@@ -143,8 +143,8 @@ class GetProducts
       store_id: store_id
     )
 
-    if hash_data.save
-      puts "O produto #{hash_data[:name]} foi adicionado com sucesso"
+    if productAux.save
+      puts "O produto #{productAux[:name]} foi adicionado com sucesso"
     else
       puts productAux.errors.full_messages
     end

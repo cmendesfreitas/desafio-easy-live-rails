@@ -5,9 +5,9 @@ class Store < ApplicationRecord
   validates_uniqueness_of :url
   validates_inclusion_of :active, in: [true, false]
 
-  validate :validate_url_api
+  validate :validate_url_api unless Rails.env.test?
 
-  after_save :insert_products
+  after_save :insert_products unless Rails.env.test?
 
   private
 

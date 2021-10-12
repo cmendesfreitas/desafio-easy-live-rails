@@ -6,7 +6,7 @@ class Api::V1::CartsController < Api::ApplicationController
 
   # GET /carts
   def index
-    @carts = current_api_v1_user.carts
+    @carts = current_api_v1_user.products
 
     render json: @carts
   end

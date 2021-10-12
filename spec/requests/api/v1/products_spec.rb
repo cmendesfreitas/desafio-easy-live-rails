@@ -24,13 +24,9 @@ RSpec.describe 'Products', search: true, type: :request do
       end
 
       it 'get 1 product', :show_in_doc, doc_title: 'get all products' do
-        # create(:product, active: true)
         Product.search_index.refresh
-        puts 'contagem do db aqui'
-        puts Product.all.count
         get api_v1_products_path, headers: valid_headers, as: :json
         json_response = JSON.parse(response.body)
-        puts json_response['products']
         expect(json_response['products'].count).to eq(1)
       end
 

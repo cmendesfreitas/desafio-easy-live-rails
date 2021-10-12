@@ -15,19 +15,18 @@
         "id": 1,
         "user": {
           "id": 2,
-          "name": "Myron Brown III"
+          "name": "Sen. Abram Kirlin"
         },
         "product": {
           "id": 1,
-          "product_id": "2ddfe415-2cbd-44d1-9785-4ce17f80cdc1",
-          "name": "Virgil Kuhic",
-          "price": "1473.77",
-          "original_price": "37.85",
-          "number_of_installments": 1,
-          "installments_full_price": "30.38",
-          "image_url": "http://gottlieb.net/carylon_lubowitz",
-          "available_quantity": 1561,
-          "active": true,
+          "product_id": "43672fff-1f01-464e-b78e-b7c5c996c6a4",
+          "name": "Fr. Charles Robel",
+          "price": "2.0",
+          "original_price": "22.85",
+          "number_of_installments": 6,
+          "installments_full_price": "92.21",
+          "image_url": "http://stokes-collier.co/tilda",
+          "available_quantity": 2,
           "description": null
         }
       },
@@ -79,10 +78,10 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "email=lynetta_monahan%40towne.io&redirect_url=http%3A%2F%2Flocalhost%3A3000%2Freset-password",
+      "request_data": "email=emory%40senger.com&redirect_url=http%3A%2F%2Flocalhost%3A3000%2Freset-password",
       "response_data": {
         "success": true,
-        "message": "An email has been sent to 'lynetta_monahan@towne.io' containing instructions for resetting your password."
+        "message": "An email has been sent to 'emory@senger.com' containing instructions for resetting your password."
       },
       "code": 200,
       "show_in_doc": 1,
@@ -99,21 +98,21 @@
       ],
       "query": null,
       "request_data": {
-        "current_password": "KiCoXgCnMlFx",
-        "password": "XiSl3026D",
-        "password_confirmation": "XiSl3026D"
+        "current_password": "N7pZaC",
+        "password": "DzAl2Vb4LgZy44IrI",
+        "password_confirmation": "DzAl2Vb4LgZy44IrI"
       },
       "response_data": {
         "success": true,
         "data": {
-          "email": "eugenio.miller@carter.io",
+          "email": "clemente@kihn-anderson.io",
           "id": 5,
-          "uid": "eugenio.miller@carter.io",
+          "uid": "clemente@kihn-anderson.io",
           "provider": "email",
           "allow_password_change": false,
-          "name": "Thaddeus Kling",
-          "created_at": "2021-10-11T09:59:15.428Z",
-          "updated_at": "2021-10-11T09:59:15.477Z"
+          "name": "Cami Prohaska",
+          "created_at": "2021-10-12T16:44:32.699Z",
+          "updated_at": "2021-10-12T16:44:33.068Z"
         },
         "message": "Your password has been successfully updated."
       },
@@ -132,25 +131,27 @@
       ],
       "query": null,
       "request_data": null,
-      "response_data": [
-        {
-          "id": 3,
-          "product_id": "d29b7e5a-5f24-46d2-9a1b-a7bc9e1109d4",
-          "name": "Ahmed Vandervort",
-          "price": "3266.93",
-          "original_price": "38.34",
-          "number_of_installments": 3,
-          "installments_full_price": "38.04",
-          "image_url": "http://jerde.com/trudi.bauch",
-          "available_quantity": 4717,
-          "active": true,
-          "description": null,
-          "store": {
+      "response_data": {
+        "products": [
+          {
             "id": 3,
-            "name": "Luis Rath"
+            "product_id": "bfbde16a-3dd9-4f19-aa9c-aa4a7631d734",
+            "name": "Rev. Mao Johns",
+            "price": "2.0",
+            "original_price": "83.32",
+            "number_of_installments": 2,
+            "installments_full_price": "97.64",
+            "image_url": "http://dibbert.biz/jerrell_reichel",
+            "available_quantity": 2,
+            "store_id": 3,
+            "active": true,
+            "created_at": "2021-10-12T16:44:33.132Z",
+            "updated_at": "2021-10-12T16:44:33.132Z",
+            "description": null
           }
-        }
-      ],
+        ],
+        "last_page": true
+      },
       "code": 200,
       "show_in_doc": 1,
       "recorded": true
@@ -167,20 +168,30 @@
       "query": null,
       "request_data": null,
       "response_data": {
-        "id": 4,
-        "product_id": "36eaf643-1159-4214-8d02-a1f54d06fa8e",
-        "name": "Elodia Gerlach",
-        "price": "3750.23",
-        "original_price": "45.21",
-        "number_of_installments": 4,
-        "installments_full_price": "60.44",
-        "image_url": "http://gusikowski-runte.com/arnoldo",
-        "available_quantity": 409,
-        "active": false,
-        "description": null,
+        "product": {
+          "id": 4,
+          "product_id": "3b04a2d2-388c-4c4b-8d08-db6431f1e89a",
+          "name": "Andrea Grady",
+          "price": "2.0",
+          "original_price": "43.01",
+          "number_of_installments": 1,
+          "installments_full_price": "81.62",
+          "image_url": "http://volkman.net/jayson",
+          "available_quantity": 2,
+          "store_id": 4,
+          "active": true,
+          "created_at": "2021-10-12T16:44:34.176Z",
+          "updated_at": "2021-10-12T16:44:34.176Z",
+          "description": null
+        },
+        "on_cart": false,
         "store": {
           "id": 4,
-          "name": "Sen. Johanna Funk"
+          "name": "Elroy West",
+          "url": "http://schuppe.org/johnathon",
+          "active": false,
+          "created_at": "2021-10-12T16:44:34.174Z",
+          "updated_at": "2021-10-12T16:44:34.174Z"
         }
       },
       "code": 200,
@@ -198,22 +209,22 @@
       ],
       "query": null,
       "request_data": {
-        "name": "Antony Treutel",
-        "password": "ZcSj0GkIm0Cc2",
-        "password_confirmation": "ZcSj0GkIm0Cc2",
-        "email": "javier.will@ledner.info"
+        "name": "Porsha Lebsack",
+        "password": "PkVsLe",
+        "password_confirmation": "PkVsLe",
+        "email": "kermit_king@barrows-bruen.com"
       },
       "response_data": {
         "status": "success",
         "data": {
           "id": 8,
           "provider": "email",
-          "uid": "javier.will@ledner.info",
+          "uid": "kermit_king@barrows-bruen.com",
           "allow_password_change": false,
-          "name": "Antony Treutel",
-          "email": "javier.will@ledner.info",
-          "created_at": "2021-10-11T09:59:15.629Z",
-          "updated_at": "2021-10-11T09:59:15.636Z"
+          "name": "Porsha Lebsack",
+          "email": "kermit_king@barrows-bruen.com",
+          "created_at": "2021-10-12T16:44:34.422Z",
+          "updated_at": "2021-10-12T16:44:34.439Z"
         }
       },
       "code": 200,
@@ -233,7 +244,7 @@
       "request_data": null,
       "response_data": {
         "status": "success",
-        "message": "Account with UID 'jacques@hahn.io' has been destroyed."
+        "message": "Account with UID 'brande.orn@lakin.io' has been destroyed."
       },
       "code": 200,
       "show_in_doc": 1,
@@ -250,17 +261,17 @@
       ],
       "query": null,
       "request_data": {
-        "email": "terrance@carroll.biz",
-        "password": "Ck1UyGgZ8wV7j6LjD"
+        "email": "jimmy_nicolas@dibbert.com",
+        "password": "X389mKbW8y0"
       },
       "response_data": {
         "data": {
-          "email": "terrance@carroll.biz",
+          "email": "jimmy_nicolas@dibbert.com",
           "id": 10,
-          "uid": "terrance@carroll.biz",
+          "uid": "jimmy_nicolas@dibbert.com",
           "provider": "email",
           "allow_password_change": false,
-          "name": "Willian Bayer"
+          "name": "Cinderella Wuckert"
         }
       },
       "code": 200,
@@ -299,10 +310,10 @@
         "data": {
           "id": 12,
           "provider": "email",
-          "uid": "elias@champlin.org",
+          "uid": "nickole@mcglynn.name",
           "allow_password_change": false,
-          "name": "Jude Greenfelder DVM",
-          "email": "elias@champlin.org"
+          "name": "Clayton Bayer",
+          "email": "nickole@mcglynn.name"
         }
       },
       "code": 200,

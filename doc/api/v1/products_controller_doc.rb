@@ -10,6 +10,9 @@ module Api::V1::ProductsControllerDoc
 
   api :GET, '/v1/products/', 'Get all valid products'
   param_group :authorization
+  param :search_query, String, required: false
+  param :page, String, required: false
+  param :order, String, required: false
   def index; end
 
   api :GET, '/v1/products/:product_id', 'Get product details'

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Products', type: :request do
+RSpec.describe 'Products', search: true, type: :request do
   let(:user) { create :user }
   let(:valid_headers) { user.create_new_auth_token }
   let(:invalid_headers) {}
@@ -14,16 +14,31 @@ RSpec.describe 'Products', type: :request do
     end
 
     context 'when logged in' do
+      let!(:product) do
+        create(:product, active: true)
+      end
+
       it 'renders a successful response' do
         get api_v1_products_path, headers: valid_headers
         expect(response).to have_http_status(:success)
       end
 
       it 'get 1 product', :show_in_doc, doc_title: 'get all products' do
-        create(:product, active: true)
+        # create(:product, active: true)
+        Product.search_index.refresh
+        puts 'contagem do db aqui'
+        puts Product.all.count
         get api_v1_products_path, headers: valid_headers, as: :json
         json_response = JSON.parse(response.body)
-        expect(json_response.count).to eq(1)
+        puts json_response['products']
+        expect(json_response['products'].count).to eq(1)
+      end
+
+      it "searches" do
+        store = create(:store)
+        Product.create!(attributes_for(:product, store_id: store.id, name: "Apple"))
+        Product.search_index.refresh
+        assert_equal ["Apple"], Product.search("apple").map(&:name)
       end
     end
   end

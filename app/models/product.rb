@@ -10,6 +10,8 @@ class Product < ApplicationRecord
 
   before_save :set_prices
 
+  searchkick
+
   private
 
   def set_prices

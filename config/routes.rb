@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :myadminpanel do
     resources :admins
+    resources :users
     resources :products
     resources :stores
 

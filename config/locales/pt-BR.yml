@@ -12,6 +12,12 @@ pt-BR:
         other: "%{count} minutos"
   activerecord:
     models:
+      admin:
+        one: Administrador
+        other: Administradores
+      user:
+        one: Usuário
+        other: Usuários
       store:
         one: Loja
         other: Lojas

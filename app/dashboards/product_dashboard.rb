@@ -14,10 +14,11 @@ class ProductDashboard < Administrate::BaseDashboard
     id: Field::Number,
     product_id: Field::String,
     name: Field::String,
-    price: Field::String.with_options(searchable: false),
-    original_price: Field::String.with_options(searchable: false),
+    description: Field::Text,
+    price: Field::Number.with_options(searchable: false, prefix: 'R$', decimals: 2),
+    original_price: Field::Number.with_options(searchable: false, prefix: 'R$', decimals: 2),
     number_of_installments: Field::Number,
-    installments_full_price: Field::String.with_options(searchable: false),
+    installments_full_price: Field::Number.with_options(searchable: false, prefix: 'R$', decimals: 2),
     image_url: Field::String,
     available_quantity: Field::Number,
     active: Field::Boolean,
@@ -43,6 +44,7 @@ class ProductDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     product_id
     name
+    description
     price
     original_price
     number_of_installments
@@ -59,6 +61,7 @@ class ProductDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     product_id
     name
+    description
     price
     original_price
     number_of_installments

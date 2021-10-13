@@ -1,5 +1,5 @@
-Admin.create(name: 'Admin teste', email: 'admin@teste.com', password: '12345678')
-User.create(name: 'Usuário teste', email: 'user@teste.com', password: '12345678')
+Admin.create(name: 'Admin teste', email: 'admin@admin.com', password: '12345678')
+User.create(name: 'Usuário teste', email: 'user@user.com', password: '12345678')
 
 Store.create(name: 'Fossil', url: 'https://www.fossil.com.br')
 Store.create(name: 'Loja NVFULLCOMM - Mercado Livre', url: 'https://www.mercadolivre.com.br/perfil/NVFULLCOMM')

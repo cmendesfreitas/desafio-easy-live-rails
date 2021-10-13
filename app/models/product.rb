@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   has_many :users, through: :carts
 
   validates :product_id, :name, :price, :available_quantity, presence: true
-  validates_uniqueness_of :product_id
+  validates_uniqueness_of :product_id, message: 'erro: item já existe no banco de dados'
   validates_inclusion_of :active, in: [true, false]
 
   before_save :set_prices

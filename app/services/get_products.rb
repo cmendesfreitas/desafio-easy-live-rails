@@ -11,12 +11,14 @@ class GetProducts
     @url = url
   end
 
-  def self.call(params)
-    new(params).get_products
-  end
-
+  # Call action that tests if store api exists/is valid
   def self.test(params)
     new(params).test_valid_api
+  end
+
+  # Call action that accesses the stores api and inserts it into the mysql db
+  def self.call(params)
+    new(params).get_products
   end
 
   def test_valid_api
@@ -68,6 +70,7 @@ class GetProducts
     self.class.get(set_url(quantity))
   end
 
+  # Check and prepare which api to call (VTEX or MercadoLivre)
   def set_url(quantity)
     if @type == 'mercadolivre'
       url_aux = @url.remove(@url_mercado_livre)
@@ -82,6 +85,8 @@ class GetProducts
     end
   end
 
+  # Specific wrapper for MercadoLivre api that analyzes the content of the product
+  # array to be inserted into the database
   def wrapper_mercado_livre(product_array)
     product_array['results'].each do |product|
       insert_product(
@@ -90,8 +95,8 @@ class GetProducts
         description: nil,
         price: product['price'],
         original_price: product['original_price'],
-        number_of_installments: product['installments']['quantity'],
-        installments_full_price: product['installments']['amount'] * product['installments']['quantity'],
+        number_of_installments: (product['installments'].present? ? product['installments']['quantity'] : 0),
+        installments_full_price: (product['installments'].present? ? (product['installments']['amount'] * (product['installments']['quantity'])) : 0),
         image_url: product['thumbnail'],
         available_quantity: product['available_quantity'],
         store_id: @store_id
@@ -99,6 +104,8 @@ class GetProducts
     end
   end
 
+  # Specific wrapper for VTEX api that analyzes the content of the product
+  # array to be inserted into the database
   def wrapper_vtex(product_array)
     product_array.each do |product|
       next unless product['items'][0]['sellers'][0]['commertialOffer']['IsAvailable'] == true
@@ -127,6 +134,7 @@ class GetProducts
     end
   end
 
+  # Generic insert product on DB
   def insert_product(product_id:, name:, description:, price:, original_price:,
                      number_of_installments:, installments_full_price:, image_url:,
                      available_quantity:, store_id:)

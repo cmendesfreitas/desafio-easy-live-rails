@@ -31,9 +31,6 @@ RSpec.describe Admin, type: :model do
       admin2 = build(:admin, email: admin1.email)
       expect(admin1).to be_valid
       expect(admin2).to_not be_valid
-
-      admin2.valid?
-      expect(admin2.errors[:email]).to include('has already been taken')
     end
   end
 end

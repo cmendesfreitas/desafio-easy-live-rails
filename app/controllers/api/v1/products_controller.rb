@@ -21,7 +21,7 @@ class Api::V1::ProductsController < Api::ApplicationController
   def set_products
     q_aux = params[:search_query]
     @q = if q_aux && q_aux != ''
-           params[:search_query]
+           q_aux
          else
            '*'
          end

@@ -12,9 +12,6 @@ RSpec.describe Product, type: :model, search: true do
       product2 = build(:product, product_id: product1.product_id)
       expect(product1).to be_valid
       expect(product2).to_not be_valid
-
-      product2.valid?
-      expect(product2.errors[:product_id]).to include('has already been taken')
     end
   end
 
@@ -50,7 +47,6 @@ RSpec.describe Product, type: :model, search: true do
     it 'searches' do
       store = create(:store)
       product = Product.create!(attributes_for(:product, store_id: store.id))
-      # Product.reindex
       Product.search_index.refresh
       assert_equal [product.name], Product.search(product.name).map(&:name)
     end

@@ -31,9 +31,6 @@ RSpec.describe User, type: :model do
       user2 = build(:user, email: user1.email)
       expect(user1).to be_valid
       expect(user2).to_not be_valid
-
-      user2.valid?
-      expect(user2.errors[:email]).to include('has already been taken')
     end
   end
 end

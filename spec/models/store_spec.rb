@@ -19,9 +19,6 @@ RSpec.describe Store, type: :model do
       store2 = build(:store, url: store1.url)
       expect(store1).to be_valid
       expect(store2).to_not be_valid
-
-      store2.valid?
-      expect(store2.errors[:url]).to include('has already been taken')
     end
   end
 

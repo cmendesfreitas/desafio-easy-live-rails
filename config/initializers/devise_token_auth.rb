@@ -5,6 +5,7 @@ DeviseTokenAuth.setup do |config|
   # client is responsible for keeping track of the changing tokens. Change
   # this to false to prevent the Authorization header from changing after
   # each request.
+  # config.change_headers_on_each_request = Rails.env.production? ? true : false
   config.change_headers_on_each_request = false
 
   # By default, users will need to re-authenticate after 2 weeks. This setting
@@ -59,4 +60,9 @@ DeviseTokenAuth.setup do |config|
   config.send_confirmation_email = false
 
   config.remove_tokens_after_password_reset = true
+
+  # By default this value is expected to be sent by the client so that the API
+  # knows where to redirect users after successful password resets. If this
+  # param is set, the API will redirect to this value when no value is provided by the client.
+  config.default_password_reset_url = Rails.env.production? ? 'https://desafio-easy-live-front.vercel.app/reset-password' : 'http://localhost:3001/reset-password'
 end

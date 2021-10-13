@@ -10,7 +10,6 @@ module Api::V1::PasswordsControllerDoc
 
   api :POST, '/v1/auth/password', 'Envia um email para mudança de senha'
   param :email, String, required: true
-  param :redirect_url, String, required: true
   def create; end
 
   api :PUT, '/v1/auth/password', 'Troca a senha'

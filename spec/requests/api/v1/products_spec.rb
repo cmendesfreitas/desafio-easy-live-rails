@@ -24,17 +24,11 @@ RSpec.describe 'Products', search: true, type: :request do
       end
 
       it 'get 1 product', :show_in_doc, doc_title: 'get all products' do
+        # Product.reindex
         Product.search_index.refresh
         get api_v1_products_path, headers: valid_headers, as: :json
         json_response = JSON.parse(response.body)
         expect(json_response['products'].count).to eq(1)
-      end
-
-      it "searches" do
-        store = create(:store)
-        Product.create!(attributes_for(:product, store_id: store.id, name: "Apple"))
-        Product.search_index.refresh
-        assert_equal ["Apple"], Product.search("apple").map(&:name)
       end
     end
   end

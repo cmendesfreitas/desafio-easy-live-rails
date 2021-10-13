@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Product, type: :model do
+RSpec.describe Product, type: :model, search: true do
   context 'validate product_id' do
     it 'is not present' do
       product = build(:product, product_id: '')
@@ -43,6 +43,16 @@ RSpec.describe Product, type: :model do
     it 'is not true or false' do
       product = build(:product, active: nil)
       expect(product).to_not be_valid
+    end
+  end
+
+  context 'validate search' do
+    it 'searches' do
+      store = create(:store)
+      product = Product.create!(attributes_for(:product, store_id: store.id))
+      # Product.reindex
+      Product.search_index.refresh
+      assert_equal [product.name], Product.search(product.name).map(&:name)
     end
   end
 end

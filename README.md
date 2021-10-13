@@ -92,3 +92,5 @@ mailcatcher
 ```
 
 Caso decida usar o frontend NextJS desenvolvido em localhost, deve-se subi-lo na porta 3001, para não conflitar com o rails e também por conta do valor da variável config.default_password_reset_url no arquivo de initializer/devise_token_auth.rb, definido como ‘http://localhost:3001/reset-token’ para ambiente de dev. Sem isso não será possível utilizar a rota de recuperar a senha na plataforma frontend.
+
+O email usado em produção para recuperar a senha é o meu cmendesdf@gmail.com
